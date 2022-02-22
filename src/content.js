@@ -5,7 +5,8 @@ for (var i = 0; i < elements.length; i++) {
     var node = element.childNodes[j];
     if (node.nodeType === 3) {
       var text = node.nodeValue;
-      var replacedText = text.replace("Lil Kleine", "Pauperkabouter");
+      var regEx = new RegExp("lil(.*)kleine", "ig");
+      var replacedText = text.replace(regEx, "Pauperkabouter");
       if (replacedText !== text) {
         element.replaceChild(document.createTextNode(replacedText), node);
       }
