@@ -18,10 +18,12 @@ function wegMetDieNaam() {
 
 const targetNode = document.body;
 const config = { childList: true, subtree: true };
-
+let c = 0;
 const callback = function (mutationsList, observer) {
   for (let mutation of mutationsList) {
-    console.log(mutation.type);
+    if (c++ > 100) {
+        observer.disconnect();
+      }
     if (mutation.type === "childList") {
       wegMetDieNaam();
     }
