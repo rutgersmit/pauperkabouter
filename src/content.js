@@ -6,7 +6,7 @@ function wegMetDieNaam() {
       var node = element.childNodes[j];
       if (node.nodeType === 3) {
         var text = node.nodeValue;
-        var regEx = new RegExp("lil(.*)kleine", "igm");
+        var regEx = new RegExp("lil[ \t\r\n\v\f'`]{1,4}kleine", "igm");
         var replacedText = text.replace(regEx, "Pauperkabouter");
         if (replacedText !== text) {
           element.replaceChild(document.createTextNode(replacedText), node);
